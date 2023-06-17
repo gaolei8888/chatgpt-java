@@ -50,13 +50,13 @@ public class OpenAiStreamClientTest {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         client = OpenAiStreamClient.builder()
-                .apiKey(Arrays.asList("sk-***********","sk-*********"))
+                .apiKey(Arrays.asList("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"))
                 //自定义key的获取策略：默认KeyRandomStrategy
 //                .keyStrategy(new KeyRandomStrategy())
                 .keyStrategy(new FirstKeyStrategy())
                 .okHttpClient(okHttpClient)
                 //自己做了代理就传代理地址，没有可不不传（(关注公众号回复：openai ，获取免费的测试代理地址)）
-//                .apiHost("https://自己代理的服务器地址/")
+                .apiHost("https://metaclue.net:8034/")
                 .build();
     }
 
@@ -119,6 +119,4 @@ public class OpenAiStreamClientTest {
             e.printStackTrace();
         }
     }
-
-
 }

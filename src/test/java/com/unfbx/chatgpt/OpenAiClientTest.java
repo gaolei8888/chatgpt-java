@@ -62,7 +62,7 @@ public class OpenAiClientTest {
     @Before
     public void before() {
         //可以为null
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890));
+        Proxy proxy = null;//new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890));
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new OpenAILogger());
         //！！！！千万别再生产或者测试环境打开BODY级别日志！！！！
         //！！！生产或者测试环境建议设置为这三种级别：NONE,BASIC,HEADERS,！！！
@@ -78,7 +78,7 @@ public class OpenAiClientTest {
                 .build();
         v2 = OpenAiClient.builder()
                 //支持多key传入，请求时候随机选择
-                .apiKey(Arrays.asList("sk-***********","sk-*********"))
+                .apiKey(Arrays.asList("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"))
                 //自定义key的获取策略：默认KeyRandomStrategy
                 //.keyStrategy(new KeyRandomStrategy())
                 .keyStrategy(new FirstKeyStrategy())

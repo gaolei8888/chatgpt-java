@@ -17,24 +17,31 @@ repositories {
 }
 
 dependencies {
-    api 'org.projectlombok:lombok:1.18.24'
-    api 'org.slf4j:slf4j-api:2.0.6'
-    api 'org.slf4j:slf4j-simple:2.0.6'
-    api 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
-    api 'cn.hutool:hutool-all:5.8.12'
-    api 'com.squareup.okhttp3:okhttp-sse:3.14.9'
-    api 'com.squareup.okhttp3:logging-interceptor:3.14.9'
-    api 'com.squareup.retrofit2:retrofit:2.9.0'
-    api 'com.squareup.retrofit2:converter-jackson:2.9.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-    api 'org.jetbrains:annotations:RELEASE'
-    api 'com.knuddels:jtokkit:0.5.0'
+    implementation 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    implementation group: 'org.jetbrains', name: 'annotations', version: '24.0.1'
+
+    implementation 'org.slf4j:slf4j-api:2.0.6'
+    annotationProcessor('org.slf4j:slf4j-api:2.0.6')
+
+    implementation 'org.slf4j:slf4j-simple:2.0.6'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+    implementation 'cn.hutool:hutool-all:5.8.12'
+    implementation 'com.squareup.okhttp3:okhttp-sse:3.14.9'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.9'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.knuddels:jtokkit:0.5.0'
+
     testImplementation 'junit:junit:4.13.2'
 }
 
-group = 'com.unfbx'
-version = '1.0.14'
-description = 'chatgpt-java'
+group = 'com.dc.gpt'
+version = '0.0.1'
+description = 'chatgpt'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {

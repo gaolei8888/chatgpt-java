@@ -64,13 +64,13 @@ public class OpenAiClientFunctionTest {
 
         openAiStreamClient = OpenAiStreamClient.builder()
                 //支持多key传入，请求时候随机选择
-                .apiKey(Arrays.asList("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"))
+                .apiKey(Arrays.asList("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"))
                 //自定义key的获取策略：默认KeyRandomStrategy
                 .keyStrategy(new KeyRandomStrategy())
                 .authInterceptor(new DynamicKeyOpenAiAuthInterceptor())
                 .okHttpClient(okHttpClient)
                 //自己做了代理就传代理地址，没有可不不传,(关注公众号回复：openai ，获取免费的测试代理地址)
-//                .apiHost("https://metaclue.net:8034/")
+                .apiHost("https://metaclue.net:8034/")
                 .build();
     }
 
@@ -250,6 +250,8 @@ public class OpenAiClientFunctionTest {
             countDownLatch1.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("here we go");
         }
     }
 

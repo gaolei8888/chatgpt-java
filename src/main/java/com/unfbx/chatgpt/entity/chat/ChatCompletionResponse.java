@@ -18,6 +18,6 @@ public class ChatCompletionResponse implements Serializable {
     private String object;
     private long created;
     private String model;
-    private List<ChatChoice> choices;
+    private List<RawChatChoice> choices;
     private Usage usage;
 }

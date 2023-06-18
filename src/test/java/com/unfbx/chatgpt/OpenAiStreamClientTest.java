@@ -50,7 +50,7 @@ public class OpenAiStreamClientTest {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .build();
         client = OpenAiStreamClient.builder()
-                .apiKey(Arrays.asList("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"))
+                .apiKey(Arrays.asList("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"))
                 //自定义key的获取策略：默认KeyRandomStrategy
 //                .keyStrategy(new KeyRandomStrategy())
                 .keyStrategy(new FirstKeyStrategy())
@@ -106,17 +106,20 @@ public class OpenAiStreamClientTest {
 
     @Test
     public void completions() {
-        ConsoleEventSourceListener eventSourceListener = new ConsoleEventSourceListener();
-        Completion q = Completion.builder()
-                .prompt("我想申请转专业，从计算机专业转到会计学专业，帮我完成一份两百字左右的申请书")
-                .stream(true)
-                .build();
-        client.streamCompletions(q, eventSourceListener);
         CountDownLatch countDownLatch = new CountDownLatch(1);
         try {
+            ConsoleEventSourceListenerV2 eventSourceListener = new ConsoleEventSourceListenerV2(countDownLatch);
+            Completion q = Completion.builder()
+                    .prompt("我想申请转专业，从计算机专业转到会计学专业，帮我完成一份两百字左右的申请书")
+                    .stream(true)
+                    .build();
+            client.streamCompletions(q, eventSourceListener);
+
             countDownLatch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("Finished");
         }
     }
 }

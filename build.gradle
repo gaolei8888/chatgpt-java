@@ -9,6 +9,8 @@ plugins {
     id 'maven-publish'
 }
 
+group = "com.dc.gpt.common"
+
 repositories {
     mavenLocal()
     maven {
@@ -48,6 +50,10 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 publishing {
     publications {
         maven(MavenPublication) {
+            groupId = "com.dc.gpt"
+            artifactId = "dc-gpt-common"
+            version = "0.0.1"
+
             from(components.java)
         }
     }

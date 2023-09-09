@@ -1,5 +1,6 @@
 package com.unfbx.chatgpt.entity.chat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.unfbx.chatgpt.entity.common.Usage;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * 2023-03-02
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatCompletionResponse implements Serializable {
     private String id;
     private String object;
@@ -20,4 +22,5 @@ public class ChatCompletionResponse implements Serializable {
     private String model;
     private List<RawChatChoice> choices;
     private Usage usage;
+    private String warning;
 }

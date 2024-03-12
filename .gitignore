@@ -33,3 +33,4 @@ build/
 /unfbx_0xBA5D895F_SECRET.gpg
 
 .gradle
+.gradle/**.*
